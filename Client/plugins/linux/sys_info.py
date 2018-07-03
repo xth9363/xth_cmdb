@@ -231,11 +231,11 @@ def get_disk_info():
     如果需要查看Raid信息，可以尝试MegaCli工具。
     :return:
     """
-    raw_data = subprocess.Popen("sudo hdparm -i /dev/sda | grep Model", stdout=subprocess.PIPE, shell=True)
-    raw_data = raw_data.stdout.read().decode()
-    data_list = raw_data.split(",")
-    model = data_list[0].split("=")[1]
-    sn = data_list[2].split("=")[1].strip()
+    # raw_data = subprocess.Popen("sudo hdparm -i /dev/sda | grep Model", stdout=subprocess.PIPE, shell=True)
+    # raw_data = raw_data.stdout.read().decode()
+    # data_list = raw_data.split(",")
+    # model = data_list[0].split("=")[1]
+    # sn = data_list[2].split("=")[1].strip()
 
     size_data = subprocess.Popen("sudo fdisk -l /dev/sda | grep Disk|head -1", stdout=subprocess.PIPE, shell=True)
     size_data = size_data.stdout.read().decode()
@@ -243,9 +243,9 @@ def get_disk_info():
 
     result = {'physical_disk_driver': []}
     disk_dict = dict()
-    disk_dict["model"] = model
+    # disk_dict["model"] = model
     disk_dict["size"] = size
-    disk_dict["sn"] = sn
+    # disk_dict["sn"] = sn
     result['physical_disk_driver'].append(disk_dict)
 
     return result

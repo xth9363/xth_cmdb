@@ -11,9 +11,15 @@
 import os
 
 # 远端服务器配置
+# Params = {
+#     "server": "127.0.0.1",
+#     "port": 8000,
+#     'url': '/assets/report/',
+#     'request_timeout': 30,
+# }
 Params = {
-    "server": "127.0.0.1",
-    "port": 8000,
+    "server": "cmdb.xiatianhao.com",
+    "port": 80,
     'url': '/assets/report/',
     'request_timeout': 30,
 }
